@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>ЛЕНТА</title>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=811eea2a-c8b6-4920-a44d-53e55e1323d1&lang=ru_RU" type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/3860b9b678.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		ymaps.ready(init);
+		function init(){
+		    var myMap = new ymaps.Map("map", {
+		        center: [43.235232, 76.909936],
+		        zoom: 18
+		    }, {
+		        searchControlProvider: 'yandex#search'
+		    });
+		    myGeoObject = new ymaps.GeoObject({
+		        geometry: {
+		            type: "Point",
+		            coordinates: [43.235232, 76.909936]
+		        },
+		        properties: {
+		            iconContent: 'IITU',
+		            hintContent: 'International IT University'
+		        }
+		    }, {
+		        preset: 'islands#blackStretchyIcon',
+		        draggable: true
+		    }),
+
+		    myMap.geoObjects
+		        .add(myGeoObject);
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div>
+			<img src="logo.png" alt="logo" id="logo">
+		</div>
+		<div class="website_name">
+			<p>WEALTHY CRIMINALS</p>
+		</div>
+		<nav>
+			<a href="feed.html" id="current">ЛЕНТА</a>
+			<a href="statement.html">ЗАЯВЛЕНИЕ</a>
+			<a href="complaint.html">ЖАЛОБА</a>
+			<a href="map.html">КАРТА</a>
+		</nav>
+		<div id="account">
+			<a href="registration_page.html"><i class="fa-solid fa-user"></i></a>
+		</div>
+	</header>
+	<section class="warning">
+		<div>
+			НЕ ТЕРПИТЕ БОЛЬ! НЕ МОЛЧИТЕ!
+			<br> МЫ ЗА ОБЩЕСТВЕННУЮ БЕЗОПАСНОСТЬ
+			<br>	Свяжитесь с нами по номеру +7 777 777 77 77
+		</div>
+		<div id="i">
+			<i class="fa-brands fa-instagram"></i>
+			<i class="fa-brands fa-whatsapp"></i>
+			<i class="fa-brands fa-telegram"></i>
+		</div>
+	</section>
+	<main>
+		<section id="news_container">
+			<div id="news_header">
+				<h3>СРОЧНЫЕ НОВОСТИ</h3>
+			</div>
+			<div class="news">
+				<img class="news_img" src="images\alma.jpg">
+				<p class="news_date">25 ноября 2022.</p>
+				<a class="news_text" href="#">Студента МУИТ избил полицейский...</a>
+			</div>
+			<div class="news">
+				<img class="news_img" src="images\alem.jpeg">
+				<p class="news_date">22 ноября 2022.</p>
+				<a class="news_text" href="#">Полицейский города Алматы задержан за избиение студента МУИТ и коррупцию...</a>
+			</div>
+
+			<div class="news">
+				<img class="news_img" src="images\kanat.jpg">
+				<p class="news_date">22 ноября 2022.</p>
+				<a class="news_text" href="#">Студент МУИТ осужден за читинг...</a>
+			</div>
+			<div class="news">
+				<img class="news_img" src="https://cdn.nur.kz/images/1120x630/00e2a9dedf2f2ff1.webp?version=1">
+				<p class="news_date">22 ноября 2022.</p>
+				<a class="news_text" href="https://www.nur.kz/incident/crime/1998441-passazhira-taksi-posle-otkaza-platit-po-nochnomu-tarifu-udarili-nozhom-v-taldykorgane/">Пассажира такси после отказа платить по "ночному тарифу" ударили ножом в Талдыкоргане...</a>
+			</div>
+
+			<div class="news">
+				<img class="news_img" src="https://cdn.nur.kz/images/1120x630/022775b9aeb8f41c.webp?version=1">
+				<p class="news_date">21 ноября 2022.</p>
+				<a class="news_text" href="https://www.nur.kz/incident/crime/1998217-zhenschinu-zastrelili-v-almatinskoy-oblasti/">Женщину застрелили в Алматинской области...</a>
+			</div>
+			<div class="news">
+				<img class="news_img" src="https://cdn.nur.kz/images/1120x630/1aa74fc256ac8433.webp?version=1">
+				<p class="news_date">21 ноября 2022.</p>
+				<a class="news_text" href="https://www.nur.kz/incident/crime/1998229-muzhchina-prishel-v-politsiyu-i-soznalsya-v-ubiystve-znakomogo-v-kokshetau/">Мужчина пришел в полицию и сознался в убийстве знакомого в Кокшетау...</a>
+			</div>
+			<div class="news">
+				<img class="news_img" src="https://tengrinews.kz/userdata/news/2022/news_484189/thumb_m/photo_414126.jpeg">
+				<p class="news_date">3 ноября 2022.</p>
+				<a class="news_text" href="https://tengrinews.kz/kazakhstan_news/v-janaozene-uchitel-fizkulturyi-bil-shkolnikov-na-uroke-484189/">В Жанаозене учитель физкультуры бил школьников на уроке...</a>
+			</div>
+			<div class="news">
+				<img class="news_img" src="https://cdn.nur.kz/images/1120x630/fb9eef1d3b3e3da0.webp?version=1">
+				<p class="news_date">17 ноября 2022.</p>
+				<a class="news_text" href="https://www.nur.kz/incident/crime/1997648-zhenschine-vo-vremya-konflikta-otkusili-nos-v-akmolinskoy-oblasti/">Женщине во время конфликта откусили нос...</a>
+			</div>
+		</section>
+		<section id="tips_container">
+			<div id="tips_header">
+				<h3>СОВЕТЫ</h3>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как не стать жертвой насилия ...</p>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как уберечь себя ...</p>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как уберечь себя ...</p>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div id="footer_info">
+			<h2>Наши контакты</h2>
+			<div>+7 777 777 77 77</div>
+			<div>wealth.criminals@mail.ru<br>wealth.criminals@gmail.com</div>
+			<p>Алматы, Манаса 34А</p>
+			<p>Время работы: 24/7</p>
+		</div>
+		<div id="map"></div>
+
+	</footer>
+	<div id="copyright">Все права защищены <br>&copy; wealthy criminals</div>
+</body>
+</html>

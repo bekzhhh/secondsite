@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>ЖАЛОБА</title>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=811eea2a-c8b6-4920-a44d-53e55e1323d1&lang=ru_RU" type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/3860b9b678.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		ymaps.ready(init);
+		function init(){
+		    var myMap = new ymaps.Map("map", {
+		        center: [43.235232, 76.909936],
+		        zoom: 18
+		    }, {
+		        searchControlProvider: 'yandex#search'
+		    });
+		    myGeoObject = new ymaps.GeoObject({
+		        geometry: {
+		            type: "Point",
+		            coordinates: [43.235232, 76.909936]
+		        },
+		        properties: {
+		            iconContent: 'IITU',
+		            hintContent: 'International IT University'
+		        }
+		    }, {
+		        preset: 'islands#blackStretchyIcon',
+		        draggable: true
+		    }),
+
+		    myMap.geoObjects
+		        .add(myGeoObject);
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div>
+			<img src="logo.png" alt="logo" id="logo">
+		</div>
+		<div class="website_name">
+			<p>WEALTHY CRIMINALS</p>
+		</div>
+		<nav>
+			<a href="feed.html">ЛЕНТА</a>
+			<a href="statement.html">ЗАЯВЛЕНИЕ</a>
+			<a href="complaint.html" id="current">ЖАЛОБА</a>
+			<a href="map.html">КАРТА</a>
+		</nav>
+		<div id="account">
+			<a href="registration_page.html"><i class="fa-solid fa-user"></i></a>
+		</div>
+	</header>
+	<section class="warning">
+		<div>	
+			НЕ ТЕРПИТЕ БОЛЬ! НЕ МОЛЧИТЕ! 				
+			<br> МЫ ЗА ОБЩЕСТВЕННУЮ БЕЗОПАСНОСТЬ 
+			<br>	Свяжитесь с нами по номеру +7 777 777 77 77
+		</div>
+        <div id="i">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-telegram"></i>
+        </div>
+	</section>	
+	<main>
+		<section class="statement_container">
+			<h2>Подать жалобу на водителя</h2>
+    		<label>Ваше Имя:<small>(если вы хотите сохранить анонимность введите любое другое имя)</small></label><br>
+    		<input type="text" id="name"><br>
+    		<label>Ваш Номер:<small>(по которому мы можем с вами связаться)</small></label><br>
+    		<input type="text" id="phone"><br>
+    		<label>Номер автобуса:</label><br>
+    		<input type="number" id="number"><br>
+    		<label>Что случилось?<small>(напишите в чем дело?)</small></label><br>
+    		<textarea cols="30" rows="10" id="message"></textarea><br>
+    		<label>Доказательства:<small>(если у вас есть возможность предоставить доказательство, прикрепите пожалуйста)</small></label><br>
+    		<input type="file" name="Proof" id="proof"><br>
+    		<input type="checkbox" name="condition" class="condition"><label>Я соглашаюсь с обработкой персональных данных</label><br>
+    		<input type="checkbox" name="condition" class="condition"><label>Отправляя, вы соглашаетесь с политикой конфиденциальности</label><br><br>
+    		<input type="submit" name="submit" value="Очистить" id="clear">
+         <input type="submit" name="submit" value="Отправить" id="submit">
+    	</section>
+
+		<section id="tips_container">
+			<div id="tips_header">
+				<h3 >СОВЕТЫ</h3>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как не стать жертвой насилия ...</p>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как уберечь себя ...</p>
+			</div>
+			<div class="tips">
+				<img class="tips_img" src="https://sputnik.kz/img/07e4/09/11/14982417_0:14:1198:688_1920x0_80_0_0_f90d7ec4a56d7b76eee214a9ee2a4824.jpg">
+				<p class="tips_text">Как уберечь себя ...</p>
+			</div>
+		</section>
+	</main>
+	<footer>
+        <div id="footer_info">
+            <h2>Наши контакты</h2>
+            <div>+7 777 777 77 77</div>
+            <div>wealth.criminals@mail.ru<br>wealth.criminals@gmail.com</div>
+            <p>Алматы, Манаса 34А</p>
+            <p>Время работы: 24/7</p>
+        </div>
+        <div id="map"></div>
+
+    </footer>
+    <div id="copyright">Все права защищены <br>&copy; wealthy criminals</div>
+</body>
+</html>

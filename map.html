@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>О НАС</title>
+    <link rel="stylesheet" href="css/style.css">
+   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=811eea2a-c8b6-4920-a44d-53e55e1323d1&lang=ru_RU" type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/3860b9b678.js" crossorigin="anonymous"></script>
+	<script src="js\script.js"></script>
+	<script>
+		ymaps.ready(initMap);
+		function initMap() {
+			var myMap;
+			var coords = [
+	   			[43.233830, 76.909667],
+	   			[43.233848, 76.907258],
+	   			[43.233848, 76.907258],
+	   			[43.232030, 76.909035],
+	   			[43.233605, 76.907602],
+	   			[43.235244, 76.907973],
+	   			[43.235491, 76.906942],
+	   			[43.236031, 76.905563],
+	   			[43.236166, 76.903681],
+	   			[43.235283, 76.905237],
+	   			[43.231956, 76.906112],
+	   			[43.232481, 76.907683],
+	   			[43.233099, 76.906341],
+	   			[43.233294, 76.905140],
+	   			[43.233733, 76.905341],
+	   			[43.233906, 76.905822],
+	   			[43.234275, 76.906971],
+	   			[43.234275, 76.906971],
+	   			[43.234437, 76.900334],
+	   			[43.233859, 76.903756],
+	   			[43.231574, 76.900693],
+	   			[43.232040, 76.900891],
+	   			[43.232572, 76.902544],
+	   			[43.230858, 76.901987],
+	   			[43.229485, 76.901151],
+	   			[43.226502, 76.901376],
+	   			[43.227370, 76.902912],
+	   			[43.227514, 76.903406],
+	   			[43.227731, 76.904959],
+	   			[43.227067, 76.905364],
+	   			[43.226667, 76.905427],
+	   			[43.226292, 76.905481],
+	   			[43.225865, 76.902696],
+	   			[43.226008, 76.903476],
+	   			[43.227192, 76.906119],
+	   			[43.227751, 76.907422],
+	   			[43.226200, 76.907404],
+	   			[43.227219, 76.911617],
+	   			[43.228040, 76.912614],
+	   			[43.229504, 76.914662],
+	   			[43.230326, 76.910467],
+	   			[43.229754, 76.910449],
+	   			[43.231140, 76.913314],
+	   			[43.234444, 76.912210],
+	   			[43.238227, 76.911662],
+	   			[43.238490, 76.913027],
+	   			[43.228342, 76.906469],
+	   			[43.230181, 76.908508]
+			];
+			ymaps.geolocation.get().then(function (res) {
+	        	var mapContainer = $('#geolocation_map'),
+	           	bounds = res.geoObjects.get(0).properties.get('boundedBy'),
+	           	mapState = ymaps.util.bounds.getCenterAndZoom(
+	              	bounds,
+	                [mapContainer.width(), mapContainer.height()]
+	            );
+	        	createMap(mapState);
+	        	myMap.setZoom(16);
+	 			res.geoObjects.options.set('preset', 'islands#blueStretchyIcon');
+	        	res.geoObjects.get(0).properties.set({
+	            	balloonContentBody: 'Мое местоположение'
+	        	});        		
+	        	myMap.geoObjects.add(res.geoObjects);
+	        	for (var i = coords.length - 1; i >= 0; i--) {
+					myGeoObject = new ymaps.GeoObject({
+				   		geometry: {
+				       		type: "Point",
+				       		coordinates: coords[i]
+				   		}
+					}, {
+				   		preset: 'islands#redCircleIcon',
+				   		draggable: true
+					}),
+
+					myMap.geoObjects.add(myGeoObject);
+				}
+	    	}, function (e) {
+	        	createMap({
+	            	center: [43.2567, 76.9286],
+	            	zoom: 16
+	        	});
+	    	});
+	    	function createMap (state) {
+	        	myMap = new ymaps.Map('geolocation_map', state);
+	    	}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div>
+			<img src="logo.png" alt="logo" id="logo">
+		</div>
+		<div class="website_name">
+			<p>WEALTHY CRIMINALS</p>
+		</div>
+		<nav>
+			<a href="feed.html">ЛЕНТА</a>
+			<a href="statement.html">ЗАЯВЛЕНИЕ</a>
+			<a href="complaint.html">ЖАЛОБА</a>
+			<a href="map.html" id="current">КАРТА</a>
+		</nav>
+		<div id="account">
+			<a href="registration_page.html"><i class="fa-solid fa-user"></i></a>
+		</div>
+	</header>
+	<section class="warning">
+		<div>
+			НЕ ТЕРПИТЕ БОЛЬ! НЕ МОЛЧИТЕ!
+			<br> МЫ ЗА ОБЩЕСТВЕННУЮ БЕЗОПАСНОСТЬ
+			<br>	Свяжитесь с нами по номеру +7 777 777 77 77
+		</div>
+		<div id="i">
+			<i class="fa-brands fa-instagram"></i>
+			<i class="fa-brands fa-whatsapp"></i>
+			<i class="fa-brands fa-telegram"></i>
+		</div>
+	</section>
+	<div id="geolocation_map"></div>
+	<footer>
+		<div id="footer_info">
+			<h2>Наши контакты</h2>
+			<div>+7 777 777 77 77</div>
+			<div>wealth.criminals@mail.ru<br>wealth.criminals@gmail.com</div>
+			<p>Алматы, Манаса 34А</p>
+			<p>Время работы: 24/7</p>
+		</div>
+		<div id="map"></div>
+
+	</footer>
+	<div id="copyright">Все права защищены <br>&copy; wealthy criminals</div>
+</body>
+</html>
